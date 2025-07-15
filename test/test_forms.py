@@ -62,7 +62,6 @@ class FormsTest(TestCase):
     def test_manufacturer_search(self):
         form_data = {
             "name": "Test",
-            "country": "US"
         }
         form = ManufacturerSearchForm(form_data)
         self.assertTrue(form.is_valid())

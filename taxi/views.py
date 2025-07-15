@@ -86,7 +86,7 @@ class CarListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 5
 
     def get_context_data(
-        self, *, object_list = None, **kwargs
+        self, *, object_list=None, **kwargs
     ):
         context = super(CarListView, self).get_context_data(**kwargs)
         car_model = self.request.GET.get("model", "")
@@ -129,7 +129,7 @@ class DriverListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 5
 
     def get_context_data(
-        self, *, object_list = None, **kwargs
+        self, *, object_list=None, **kwargs
     ):
         context = super(DriverListView, self).get_context_data(**kwargs)
         username = self.request.GET.get("username", "")
