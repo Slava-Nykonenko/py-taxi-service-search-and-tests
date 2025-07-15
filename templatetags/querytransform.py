@@ -2,12 +2,13 @@ from django import template
 
 register = template.Library()
 
+
 @register.simple_tag
 def querytransform(request, **kwargs):
     updated = request.GET.copy()
-    for k, y in kwargs.items():
-        if y is not None:
-            updated[k] = y
+    for key, value in kwargs.items():
+        if value is not None:
+            updated[key] = value
         else:
-            updated.pop(k, 0)
+            updated.pop(key, 0)
     return updated.urlencode()
