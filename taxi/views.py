@@ -51,7 +51,7 @@ class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     ):
         context = super(ManufacturerListView, self).get_context_data(**kwargs)
         name = self.request.GET.get("name", "")
-        context["manufacturer_search"] = ManufacturerSearchForm(
+        context["search_form"] = ManufacturerSearchForm(
             initial={"name": name}
         )
         return context
@@ -90,7 +90,7 @@ class CarListView(LoginRequiredMixin, generic.ListView):
     ):
         context = super(CarListView, self).get_context_data(**kwargs)
         car_model = self.request.GET.get("model", "")
-        context["car_search"] = CarModelSearchForm(
+        context["search_form"] = CarModelSearchForm(
             initial={"model": car_model}
         )
         return context
@@ -133,7 +133,7 @@ class DriverListView(LoginRequiredMixin, generic.ListView):
     ):
         context = super(DriverListView, self).get_context_data(**kwargs)
         username = self.request.GET.get("username", "")
-        context["driver_search"] = DriverUsernameSearchForm(
+        context["search_form"] = DriverUsernameSearchForm(
             initial={"username": username}
         )
         return context
